@@ -173,12 +173,12 @@ function validarNumero(numero){
 }
 
 function validarOperador( operacion ){
-    const regex = new RegExp('^[0-9]+[+-/%\*x]{1,1}[0-9]+$');
+    const regex = new RegExp('^[0-9]+[+-/%\*xs]{1,1}[0-9]+$'); //Se agrego "s" como operador para los porcentajes
     return regex.test(operacion); // true o false
 } 
 
 function IsValidDivision(operacion){ //2/2
-    const operador = operacion.match('[+-/%\*x]{1,1}')
+    const operador = operacion.match('[+-/%\*xs]{1,1}') //Se agrego "s" como operador para los porcentajes
     if( operador[0] ==='/' || operador [0]==='%' ){
         const operando = validarOperando(operacion, operador);
         if(operando === '0'){

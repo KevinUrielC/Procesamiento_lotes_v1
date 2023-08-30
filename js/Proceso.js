@@ -19,7 +19,7 @@ function Proceso(id, nombre, tiempoEstimado, operacion){
     }
 
     this.ObtenerOperador = function(){
-        this.operador = this.operacion.match('[+-/%\*x]{1,1}');
+        this.operador = this.operacion.match('[+-/%\*xs]{1,1}'); //Se agrego "s" como operador para los porcentajes
     }
 
     this.ObtenerOperandos = function(){
@@ -57,6 +57,9 @@ function Proceso(id, nombre, tiempoEstimado, operacion){
             case '%':
                     this.resultado = this.operandos[0] % this.operandos[1];
                 break;
+            case 's':
+                    this.resultado = (this.operandos[0] * this.operandos[1]) / 100; // Realiza la operación de porcentaje
+                break; 
         }
     }
 }
